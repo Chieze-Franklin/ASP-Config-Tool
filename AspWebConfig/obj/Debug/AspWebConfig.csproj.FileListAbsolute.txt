@@ -1,0 +1,8 @@
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\bin\Debug\AspWebConfig.exe.config
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\bin\Debug\AspWebConfig.exe
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\bin\Debug\AspWebConfig.pdb
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\obj\Debug\AspWebConfig.csprojResolveAssemblyReference.cache
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\obj\Debug\AspWebConfig.Properties.Resources.resources
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\obj\Debug\AspWebConfig.csproj.GenerateResource.Cache
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\obj\Debug\AspWebConfig.exe
+c:\users\frank\documents\visual studio 2015\Projects\AspWebConfig\AspWebConfig\obj\Debug\AspWebConfig.pdb

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ASP Config Tool</title>
+	</head>
+	
+	<body>
+	
+		<pre>
+			Title:       ASP Config Tool
+			Author:      Franklin Chieze
+			Email:       chieze.franklin@gmail.com
+			Language:    C# 6.0
+			Platform:    Windows
+			Technology:  .NET Framework
+			Level:       Intermediate
+			Description: A very simple tool to launch the ASP.NET Configuration website for your ASP.NET projects.
+			Section      Web Development
+			SubSection   General
+			License:     CPOL
+		</pre>
+		
+		<link type="text/css" rel="stylesheet" href="./AspConfig_files/Main.min.css">
+		
+		<div class="page-background">
+			<div id="A" class="container-content-wrap fixed article">
+				<form>
+					<div class="header">
+					    <a name="_articleTop" id="_articleTop"></a>
+					    <div class="title">
+					        <h1 id="ctl00_ArticleTitle" itemprop="name">
+							ASP Config Tool
+							</h1> 
+					    </div>
+                    </div>
+
+					<div id="contentdiv" class="text" itemprop="articleBody">
+						<ul class="download">
+							<li><a href="./AWCT_v0_1_sources.zip">Download ASP Config Tool v0.1 Source Codes - 12 KB</a></li>
+							<li><a href="https://github.com/Chieze-Franklin/ASP-Config-Tool">GitHub repo</a></li>
+						</ul>
+
+						<h2>Introduction</h2>
+						<p>
+							ASP Config Tool helps you launch the ASP.NET Configuration website for your ASP.NET projects.<br />
+							I noticed that in Visual Studio 2013 and 2015 Microsoft (for reasons not yet known to me) seem to have removed the button that lets us 
+							launch the ASP.NET Configuration website in the Solution Explorer.<br />
+							<img width="283" height="180" src="./AspConfig_files/solution-explorer.png" /><br />
+							This is a very simple app that seeks to address that issue.
+						</p>
+
+						<h2>Background</h2>
+						<p>
+							I was refreshing my kmowledge on the fundamentals of ASP.NET MVC with a book which was written back in 2011. The sample codes in the
+							book were most likely written in Visual Studio 2010, which I do not have. In a chapter in the book we are directed to click a button on
+							VS solution explorer to launch the ASP.NET Configuration website but I couldn't find it on VS 2015. On doing a
+							little search I discovered that VS 2013 is also missing this button. I did, however, find steps to manually launch the website for
+							a given project. This app is an attempt to take those manual steps and "automate" them for the user.
+						</p>
+						<p>
+							This is a very simple project. The entire source code is in one file (<em class="file-path">Form1.cs</em>), and about 400 lines of code only (including empty lines and
+							comments). There are no advanced C# features used in the project, and very few C# 6.0 features (like string interpolation).
+						</p>
+
+						<h2>Getting Started</h2>
+						<h3>System Requirements</h3>
+						<p>
+							<ul>
+								<li>The app was built on a Windows 10 machine, but should run with no modification on Windows 7 and Windows 8.</li>
+								<li>The target framework is .NET Framework 4.5.2, but the source code can be built against many previous versions, as
+								well as .NET Framework 4.6. To build it with previous C# versions be sure to replace C# 6.0 string interpolation with
+								alternate methods like the good old string concatenation or String.Format method.</li>
+							</ul>
+						</p>
+						<h3>The User Interface</h3>
+						<p>
+							I am assuming you have downloaded (and extracted files from) the relevant zip files.
+							<ul>
+								<li>
+									Build and run the solution, this should run the <em class="file-path">AspWebConfig.exe</em> executable.
+								</li>
+								<li>
+									Select your project folder. This is usually the folder where your project's <em class="file-path">web.config</em>
+									is located, but it also works if you choose the root project folder (although, in that case, you may be asked for
+									username and password).<br />
+									<img width="484" height="292" src="./AspConfig_files/app-with-project.png" />
+								</li>
+								<li>
+									Click the <b>Launch ASP.NET Configuration Website</b> button. The app will attempt to launch IIS Express with the
+									appropriate parameters, the app waits 5 seconds, the app then launches the website on your default browser. If the page cannot be loaded, it is probably because IIS Express hasn't finished loading. Wait a few seconds then click the
+									<b>Launch ASP.NET Configuration Website</b> button again. Clicking that button multiple times will not restart
+									IIS Express (except you change something in the <b>Settings</b> tab page) but it will relaunch the website.<br />
+									<img width="600" height="286" src="./AspConfig_files/iis-website.png" />
+								</li>
+								<li>
+									If you are asked for username and password, enter the username and password for the current account you are logged
+									into on your PC.
+								</li>
+								<li>
+									If you want more control, the <b>Settings</b> tab page is there for you.<br />
+									<img width="484" height="292" src="./AspConfig_files/app-settings.png" /><br />
+									You can click the <b>Save Settings</b> button to save your preferences. They are saved to an XML file named
+									<em class="file-path">act-settings.xml</em> in the same directory as the executable.
+								</li>
+							</ul>
+						</p>
+
+						<h2>The Code Behind</h2>
+						<p>
+							To understand how this app works you need to know how the ASP.NET Configuration website is launched manually. There are only two
+							steps involved:
+							<ul>
+								<li>
+									Start IIS Express with the appropriate parameters.<br />
+									You can do this by running a batch with the contents below:
+<pre lang="bat" id="pre0" style="margin-top: 0px;">
+<span class="code-keyword">cd</span> C:\Program Files\IIS Express
+<span class="code-type code-keyword">iisexpress</span> /<span class="code-tag">path</span>:C:\windows\Microsoft.NET\Framework\v4.0.30319\ASP.NETWebAdminFiles /<span class="code-tag">vpath</span>:<span class="code-string">"/asp.netwebadminfiles"</span> /<span class="code-tag">port</span>:<span class="code-digit">8089</span> /<span class="code-tag">clr</span>:<span class="code-digit">4.0</span> /<span class="code-tag">ntlm</span>
+</pre>
+								</li>
+								<li>
+									Launch a browser page with the appropriate URL.
+									You can do this by typing the URL below into a browser (replace the variable <code>{project-path}</code> with your
+									actual project path):
+<pre lang="bat" id="pre0" style="margin-top: 0px;">
+http://localhost:8089/asp.netwebadminfiles/default.aspx?applicationPhysicalPath=<span class="code-tag">{project-path}</span>\&amp;applicationUrl=/
+</pre>
+								</li>
+							</ul>
+						</p>
+						<p>
+							This is essentially what the app does when you click the <b>Launch ASP.NET Configuration Website</b> button, except that instead of
+							writing and running a batch file (which is what I did before) I simply use System.Diagnostics.Process.Start method twice: first to
+							start IIS Express, then to launch a browser tab with the appropriate URL.
+<pre lang="cs" id="pre0" style="margin-top: 0px;">
+<span class="code-comment">//run IIS Express</span>
+<span class="code-comment">//additional lines truncated for brevity</span>
+System.Diagnostics.<span class="code-type code-keyword">Process</span>.Start(<span class="code-string">$@"</span>{settings.IISExpressPath}<span class="code-string">\iisexpress.exe"</span>,
+	<span class="code-string">$@"/path:</span>{settings.ASPWebAdminFilesPath}<span class="code-string"> "</span> +
+	<span class="code-string">"/vpath:\"/asp.netwebadminfiles\" "</span> +
+	<span class="code-string">$@"/port:</span>{settings.Port}<span class="code-string"> "</span> +
+	<span class="code-string">$@"/clr:</span>{settings.CLR}<span class="code-string"> "</span> +
+	<span class="code-string">"/ntlm"</span>
+	);
+
+<span class="code-comment">//additional lines truncated for brevity</span>
+<span class="code-comment">//run the page on the browser</span>
+System.Diagnostics.<span class="code-type code-keyword">Process</span>.Start(<span class="code-string">$@"http://localhost:</span>{settings.Port}<span class="code-string">/asp.netwebadminfiles/default.aspx?"</span> +
+	<span class="code-string">$@"applicationPhysicalPath=</span>{settings.ProjectPath}<span class="code-string">\&amp;applicationUrl=/"</span>);
+</pre>
+						</p>
+
+						<p>
+							If you are using VS 2013 or 2015 I hope you find this little project useful.
+						</p>
+
+						<h2>License</h2>
+						<div id="LicenseTerms">
+						<p>
+							This article, along with any associated source code and files, is licensed under 
+							<a href="http://www.codeproject.com/info/cpol10.aspx" rel="license">The Code Project Open License (CPOL)</a>
+						</p>
+						</div><br>
+						
+					<div style="padding-top:8px">
+						<a class="anchorLink" href="#_articleTop">Article Top</a>
+					</div>
+				</form>
+			</div>
+		</div> 
+	</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ASPWebAdminFilesPath>C:\windows\Microsoft.NET\Framework\v4.0.30319\ASP.NETWebAdminFiles</ASPWebAdminFilesPath>
+  <CLR>4.0</CLR>
+  <IISExpressPath>C:\Program Files\IIS Express</IISExpressPath>
+  <Port>8089</Port>
+  <ProjectPath>C:\Users\frank\Documents\Visual Studio 2015\Projects\MvcMusicStore-v4</ProjectPath>
+</Settings>
